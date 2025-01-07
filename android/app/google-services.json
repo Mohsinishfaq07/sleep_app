@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "899223081133",
+    "project_id": "sleepingapp-a47d0",
+    "storage_bucket": "sleepingapp-a47d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899223081133:android:bae90287c51cf7737db624",
+        "android_client_info": {
+          "package_name": "com.example.sleeping_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899223081133-jgep3lk34shrpgee1i74r0quihqgc970.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sleeping_app",
+            "certificate_hash": "79fecdbc9b000212303625cd85c377d2df9ebe5d"
+          }
+        },
+        {
+          "client_id": "899223081133-n8q9q23itj7gu2r8234s6oegioee3mn0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlsKAFosIZ1OiLoRogpHi8zI7_U1cDosE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "899223081133-n8q9q23itj7gu2r8234s6oegioee3mn0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "899223081133-vd49rnvocer3o4drvrpctaip3uuhc4kh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sleepingApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
