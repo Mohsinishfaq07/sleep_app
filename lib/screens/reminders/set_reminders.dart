@@ -337,8 +337,10 @@ class _SetReminderScreenState extends State<SetReminderScreen> {
 
                               await sleepingReminder
                                   .addSleepingReminderIfNotExists(newGoal);
-                              if (context.mounted) {
-                                Navigator.pop(context);
+                              if (widget.showBackButton) {
+                                if (context.mounted) {
+                                  Navigator.pop(context);
+                                }
                               }
                             } else {
                               setState(() {
@@ -512,42 +514,45 @@ class _SetReminderScreenState extends State<SetReminderScreen> {
             ),
           ],
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Center(
-              child: goalButton(
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Center(
+                child: goalButton(
+                  onTap: () {
+                    increaseMinute();
+                  },
+                  height: 30,
+                  width: 30,
+                  widget: const Icon(
+                    Icons.arrow_upward,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Text(
+                '$minute ',
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 23),
+              ),
+              goalButton(
                 onTap: () {
-                  increaseMinute();
+                  decrementMinute();
                 },
                 height: 30,
                 width: 30,
                 widget: const Icon(
-                  Icons.arrow_upward,
+                  Icons.arrow_downward,
                   color: Colors.white,
                 ),
               ),
-            ),
-            Text(
-              '$minute ',
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 23),
-            ),
-            goalButton(
-              onTap: () {
-                decrementMinute();
-              },
-              height: 30,
-              width: 30,
-              widget: const Icon(
-                Icons.arrow_downward,
-                color: Colors.white,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
         Column(
           children: [

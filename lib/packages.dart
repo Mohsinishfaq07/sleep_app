@@ -6,8 +6,5 @@ export 'package:sleeping_app/screens/splash_screen/splash_controller.dart';
 export 'package:sleeping_app/screens/splash_screen/splash_screen.dart';
 export 'package:sleeping_app/utils/colors.dart';
 export 'package:flutter/services.dart';
-export 'package:firebase_core/firebase_core.dart';
-export 'package:sleeping_app/auth/auth_service.dart';
+
 export 'package:sleeping_app/constants.dart';
-export 'package:firebase_auth/firebase_auth.dart';
-export 'package:sleeping_app/auth/sign_in_screen.dart';

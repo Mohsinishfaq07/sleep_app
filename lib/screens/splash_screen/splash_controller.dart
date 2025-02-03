@@ -1,10 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sleeping_app/auth/sign_in_screen.dart';
+
 import 'package:sleeping_app/bottom_navigation_bar/my_bottom_navigation_bar.dart';
-import 'package:sleeping_app/constants.dart';
+
 import 'package:sleeping_app/screens/welcome_screen/welcome_screen.dart';
 
 class SplashScreenController extends GetxController
@@ -65,21 +64,8 @@ class SplashScreenController extends GetxController
     bool isFirstRun = prefs.getBool('isFirstRun') ?? true;
 
     if (!isFirstRun) {
-      final FirebaseAuth _auth = FirebaseAuth.instance;
-      User? user = _auth.currentUser;
-
-      if (user != null) {
-        firebaseService.getUserData(docId: user.uid);
-        authController.userLoggedIn.value = true;
-        Get.log('user logged in :${authController.userLoggedIn.value}');
-        Get.off(() => BottomNavigationBarScreen());
-      } else {
-        authController.userLoggedIn.value = false;
-        Get.log('user logged in :${authController.userLoggedIn.value}');
-        Get.to(() => const SignInScreen(showBackButton: true));
-      }
+      Get.off(() => BottomNavigationBarScreen());
     } else {
-      // Navigate to WelcomeScreen if it's the first time
       Get.off(() => const WelcomeScreen(
             comingForSignUp: false,
           ));

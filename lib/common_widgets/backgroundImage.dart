@@ -14,7 +14,24 @@ class BackGroundImage extends StatelessWidget {
             ? AppAssets.bg
             : themeController.currentTheme.value == 'red'
                 ? AppAssets.redBg
-                : AppAssets.blueBg),
+                : themeController.currentTheme.value == 'blue'
+                    ? AppAssets.blueBg
+                    : themeController.currentTheme.value == 'darkblue'
+                        ? AppAssets.darkBlueBG
+                        : themeController.currentTheme.value == 'green'
+                            ? AppAssets.greenBG
+                            : themeController.currentTheme.value == 'lightblue'
+                                ? AppAssets.lightBlueBG
+                                : themeController.currentTheme.value ==
+                                        'lightpurple'
+                                    ? AppAssets.lightPurpleBG
+                                    : themeController.currentTheme.value ==
+                                            'lightyellow'
+                                        ? AppAssets.lightYellowBG
+                                        : themeController.currentTheme.value ==
+                                                'purple'
+                                            ? AppAssets.purpleBG
+                                            : AppAssets.yellowBG),
         fit: BoxFit.fill,
       );
     });

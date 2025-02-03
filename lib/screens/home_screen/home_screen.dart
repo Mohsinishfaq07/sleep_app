@@ -612,87 +612,79 @@ class _HomeScreenState extends State<HomeScreen>
                       filePath: sound['filePath'],
                       onTap: () async {
                         // if user is not logged in show snack bar to login first
-                        if (!authController.userLoggedIn.value) {
-                          Get.snackbar(
-                            'Alert',
-                            'Login or Signup First to play the sound',
-                            backgroundColor: Colors.grey,
-                          );
-                        } else {
-                          mediaPlayerController.currentPlayingSound.value =
-                              sound['filePath'];
+                        mediaPlayerController.currentPlayingSound.value =
+                            sound['filePath'];
 
-                          RecentPlayingSoundModel recentSoundListElement =
-                              RecentPlayingSoundModel(
-                            soundName: sound['name'],
-                            path: sound['filePath'],
-                            playing: false,
-                          );
+                        RecentPlayingSoundModel recentSoundListElement =
+                            RecentPlayingSoundModel(
+                          soundName: sound['name'],
+                          path: sound['filePath'],
+                          playing: false,
+                        );
 
-                          if (globalController.selectedSoundCategory.value ==
-                              'Mixes') {
-                            mediaPlayerController.currentPlayingSoundName
-                                .value = 'Playing Mixes';
-                            Get.log('added');
+                        if (globalController.selectedSoundCategory.value ==
+                            'Mixes') {
+                          mediaPlayerController.currentPlayingSoundName.value =
+                              'Playing Mixes';
+                          Get.log('added');
 
-                            if (mediaPlayerController.recentSounds
-                                    .contains(recentSoundListElement) &&
-                                mediaPlayerController.isSoundPlayingByName(
-                                    soundName:
-                                        recentSoundListElement.soundName)) {
-                              Get.log(
-                                  'mixes sound is present in list and stopping the sound');
-                              mediaPlayerController.stopSound(
-                                  soundName: recentSoundListElement.soundName);
-                            } else if (mediaPlayerController.recentSounds
-                                    .contains(recentSoundListElement) &&
-                                !mediaPlayerController.isSoundPlayingByName(
-                                    soundName:
-                                        recentSoundListElement.soundName)) {
-                              Get.log(
-                                  'mixes sound is present in list and playing the sound');
-                              mediaPlayerController.playSound(
-                                  soundPath: recentSoundListElement.path,
-                                  soundName: recentSoundListElement.soundName);
-                            } else {
-                              mediaPlayerController.recentSounds
-                                  .add(recentSoundListElement);
-                              Get.log('mixes sound is not present in list');
-                              mediaPlayerController.playSound(
-                                  soundPath: recentSoundListElement.path,
-                                  soundName: recentSoundListElement.soundName);
-                            }
+                          if (mediaPlayerController.recentSounds
+                                  .contains(recentSoundListElement) &&
+                              mediaPlayerController.isSoundPlayingByName(
+                                  soundName:
+                                      recentSoundListElement.soundName)) {
+                            Get.log(
+                                'mixes sound is present in list and stopping the sound');
+                            mediaPlayerController.stopSound(
+                                soundName: recentSoundListElement.soundName);
+                          } else if (mediaPlayerController.recentSounds
+                                  .contains(recentSoundListElement) &&
+                              !mediaPlayerController.isSoundPlayingByName(
+                                  soundName:
+                                      recentSoundListElement.soundName)) {
+                            Get.log(
+                                'mixes sound is present in list and playing the sound');
+                            mediaPlayerController.playSound(
+                                soundPath: recentSoundListElement.path,
+                                soundName: recentSoundListElement.soundName);
                           } else {
-                            mediaPlayerController
-                                .currentPlayingSoundName.value = sound['name'];
-                            if (mediaPlayerController.recentSounds
-                                    .contains(recentSoundListElement) &&
-                                mediaPlayerController.isSoundPlayingByName(
-                                    soundName:
-                                        recentSoundListElement.soundName)) {
-                              Get.log(
-                                  'single sound is present in list and stopping the sound');
-                              mediaPlayerController.stopSound(
-                                  soundName: recentSoundListElement.soundName);
-                            } else if (mediaPlayerController.recentSounds
-                                    .contains(recentSoundListElement) &&
-                                !mediaPlayerController.isSoundPlayingByName(
-                                    soundName:
-                                        recentSoundListElement.soundName)) {
-                              Get.log(
-                                  'single sound is present in list and playing the sound');
-                              mediaPlayerController.playSound(
-                                  soundPath: recentSoundListElement.path,
-                                  soundName: recentSoundListElement.soundName);
-                            } else {
-                              Get.log('clear and added');
-                              mediaPlayerController.recentSounds.clear();
-                              mediaPlayerController.recentSounds
-                                  .add(recentSoundListElement);
-                              mediaPlayerController.playSound(
-                                  soundPath: recentSoundListElement.path,
-                                  soundName: recentSoundListElement.soundName);
-                            }
+                            mediaPlayerController.recentSounds
+                                .add(recentSoundListElement);
+                            Get.log('mixes sound is not present in list');
+                            mediaPlayerController.playSound(
+                                soundPath: recentSoundListElement.path,
+                                soundName: recentSoundListElement.soundName);
+                          }
+                        } else {
+                          mediaPlayerController.currentPlayingSoundName.value =
+                              sound['name'];
+                          if (mediaPlayerController.recentSounds
+                                  .contains(recentSoundListElement) &&
+                              mediaPlayerController.isSoundPlayingByName(
+                                  soundName:
+                                      recentSoundListElement.soundName)) {
+                            Get.log(
+                                'single sound is present in list and stopping the sound');
+                            mediaPlayerController.stopSound(
+                                soundName: recentSoundListElement.soundName);
+                          } else if (mediaPlayerController.recentSounds
+                                  .contains(recentSoundListElement) &&
+                              !mediaPlayerController.isSoundPlayingByName(
+                                  soundName:
+                                      recentSoundListElement.soundName)) {
+                            Get.log(
+                                'single sound is present in list and playing the sound');
+                            mediaPlayerController.playSound(
+                                soundPath: recentSoundListElement.path,
+                                soundName: recentSoundListElement.soundName);
+                          } else {
+                            Get.log('clear and added');
+                            mediaPlayerController.recentSounds.clear();
+                            mediaPlayerController.recentSounds
+                                .add(recentSoundListElement);
+                            mediaPlayerController.playSound(
+                                soundPath: recentSoundListElement.path,
+                                soundName: recentSoundListElement.soundName);
                           }
 
                           setState(() {

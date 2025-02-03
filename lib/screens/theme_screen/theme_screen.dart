@@ -36,7 +36,27 @@ class ThemeScreen extends StatelessWidget {
                   ? AppAssets.bg
                   : themeController.currentTheme.value == 'red'
                       ? AppAssets.redBg
-                      : AppAssets.blueBg),
+                      : themeController.currentTheme.value == 'blue'
+                          ? AppAssets.blueBg
+                          : themeController.currentTheme.value == 'darkblue'
+                              ? AppAssets.darkBlueBG
+                              : themeController.currentTheme.value == 'green'
+                                  ? AppAssets.greenBG
+                                  : themeController.currentTheme.value ==
+                                          'lightblue'
+                                      ? AppAssets.lightBlueBG
+                                      : themeController.currentTheme.value ==
+                                              'lightpurple'
+                                          ? AppAssets.lightPurpleBG
+                                          : themeController
+                                                      .currentTheme.value ==
+                                                  'lightyellow'
+                                              ? AppAssets.lightYellowBG
+                                              : themeController
+                                                          .currentTheme.value ==
+                                                      'purple'
+                                                  ? AppAssets.purpleBG
+                                                  : AppAssets.yellowBG),
               fit: BoxFit.fill,
             ),
           ),
@@ -122,6 +142,211 @@ class ThemeScreen extends StatelessWidget {
                         } else {
                           themeController.currentTheme.value = 'dark';
                           prefs.setString('currentTheme', 'red');
+                        }
+                      },
+                    ),
+                  );
+                }),
+
+                // dark blue
+                Obx(() {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: SwitchListTile(
+                      tileColor: Colors.blue.withOpacity(0.4),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      activeColor: Colors.blue,
+                      title: const Text(
+                        "Dark Blue Theme",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      value: themeController.currentTheme.value == 'darkblue'
+                          ? true
+                          : false,
+                      onChanged: (value) {
+                        if (value) {
+                          themeController.currentTheme.value = 'darkblue';
+                          prefs.setString('currentTheme', 'darkblue');
+                        } else {
+                          themeController.currentTheme.value = 'dark';
+                          prefs.setString('currentTheme', 'dark');
+                        }
+                      },
+                    ),
+                  );
+                }),
+                //green
+                Obx(() {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: SwitchListTile(
+                      tileColor: Colors.green.withOpacity(0.4),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      activeColor: Colors.green,
+                      title: const Text(
+                        "Green Theme",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      value: themeController.currentTheme.value == 'green'
+                          ? true
+                          : false,
+                      onChanged: (value) {
+                        if (value) {
+                          themeController.currentTheme.value = 'green';
+                          prefs.setString('currentTheme', 'green');
+                        } else {
+                          themeController.currentTheme.value = 'dark';
+                          prefs.setString('currentTheme', 'dark');
+                        }
+                      },
+                    ),
+                  );
+                }),
+                // light blue
+                Obx(() {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: SwitchListTile(
+                      tileColor: Colors.blue.withOpacity(0.4),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      activeColor: Colors.blue,
+                      title: const Text(
+                        "Light Blue Theme",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      value: themeController.currentTheme.value == 'lightblue'
+                          ? true
+                          : false,
+                      onChanged: (value) {
+                        if (value) {
+                          themeController.currentTheme.value = 'lightblue';
+                          prefs.setString('currentTheme', 'lightblue');
+                        } else {
+                          themeController.currentTheme.value = 'dark';
+                          prefs.setString('currentTheme', 'dark');
+                        }
+                      },
+                    ),
+                  );
+                }),
+                //light purple
+                Obx(() {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: SwitchListTile(
+                      tileColor: Colors.purple.withOpacity(0.4),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      activeColor: Colors.purple,
+                      title: const Text(
+                        "Purple Theme",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      value: themeController.currentTheme.value == 'lightpurple'
+                          ? true
+                          : false,
+                      onChanged: (value) {
+                        if (value) {
+                          themeController.currentTheme.value = 'lightpurple';
+                          prefs.setString('currentTheme', 'lightpurple');
+                        } else {
+                          themeController.currentTheme.value = 'dark';
+                          prefs.setString('currentTheme', 'dark');
+                        }
+                      },
+                    ),
+                  );
+                }),
+                //light yellow
+
+                Obx(() {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: SwitchListTile(
+                      tileColor: Colors.yellowAccent.withOpacity(0.4),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      activeColor: Colors.yellowAccent,
+                      title: const Text(
+                        "Yellow Theme",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      value: themeController.currentTheme.value == 'lightyellow'
+                          ? true
+                          : false,
+                      onChanged: (value) {
+                        if (value) {
+                          themeController.currentTheme.value = 'lightyellow';
+                          prefs.setString('currentTheme', 'lightyellow');
+                        } else {
+                          themeController.currentTheme.value = 'dark';
+                          prefs.setString('currentTheme', 'dark');
+                        }
+                      },
+                    ),
+                  );
+                }),
+                //purple
+                Obx(() {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: SwitchListTile(
+                      tileColor: Colors.deepPurple.withOpacity(0.4),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      activeColor: Colors.deepPurple,
+                      title: const Text(
+                        "Purple Theme",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      value: themeController.currentTheme.value == 'purple'
+                          ? true
+                          : false,
+                      onChanged: (value) {
+                        if (value) {
+                          themeController.currentTheme.value = 'purple';
+                          prefs.setString('currentTheme', 'purple');
+                        } else {
+                          themeController.currentTheme.value = 'dark';
+                          prefs.setString('currentTheme', 'dark');
+                        }
+                      },
+                    ),
+                  );
+                }),
+                //yellow
+                Obx(() {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: SwitchListTile(
+                      tileColor: Colors.yellow.withOpacity(0.4),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      activeColor: Colors.yellow,
+                      title: const Text(
+                        "Yellow Theme",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      value: themeController.currentTheme.value == 'yellow'
+                          ? true
+                          : false,
+                      onChanged: (value) {
+                        if (value) {
+                          themeController.currentTheme.value = 'yellow';
+                          prefs.setString('currentTheme', 'yellow');
+                        } else {
+                          themeController.currentTheme.value = 'dark';
+                          prefs.setString('currentTheme', 'dark');
                         }
                       },
                     ),

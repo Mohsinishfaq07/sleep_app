@@ -1,14 +1,9 @@
 import 'package:sleeping_app/packages.dart';
 import 'package:sleeping_app/services/life_cycle/life_cycle.dart';
-import 'package:sleeping_app/services/notification/notification.dart';
-
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+
   // Lock orientation to portrait mode
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

@@ -38,9 +38,7 @@ class BottomNavigationBarScreen extends StatelessWidget {
             // The IndexedStack for switching screens
             Obx(() => IndexedStack(
                   index: navBarController.selectedIndex.value,
-                  children: authController.userLoggedIn.value
-                      ? navBarController.loggedInUserScreens
-                      : navBarController.guestUserScreens,
+                  children: navBarController.screens,
                 )),
           ],
         ),
@@ -65,7 +63,7 @@ class BottomNavigationBarScreen extends StatelessWidget {
                       _buildNavItem(Icons.home, 0),
                       _buildNavItem(Icons.music_note, 1),
                       _buildNavItem(Icons.favorite, 2),
-                      _buildNavItem(Icons.person, 3),
+                      _buildNavItem(Icons.settings, 3),
                     ],
                   ),
                 ),
